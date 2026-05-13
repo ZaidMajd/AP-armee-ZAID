@@ -1,0 +1,83 @@
+# ---------------------------------------------------------
+# TABLE : GAME
+# ---------------------------------------------------------
+
+--
+-- Déchargement des données de la table `game`
+--
+
+INSERT INTO `game` (`IDGAME`, `NAME`) VALUES
+(1, 'RL');
+
+# ---------------------------------------------------------
+# TABLE : USER
+# ---------------------------------------------------------
+
+--
+-- Déchargement des données de la table `user`
+--
+
+INSERT INTO `user` (`IDUSER`, `NAME`, `EMAIL`, `PASSWORD`) VALUES
+(1, NULL, 'armee@gmail.com', '$argon2id$v=19$m=65536,t=4,p=1$OUxyU1dXQWE3VDVMLmZwSg$djJUPhNPinX3O1KtK4hpydY3M8djTsUrBWv17xkOX5k');
+
+# ---------------------------------------------------------
+# TABLE : TOURNAMENT
+# ---------------------------------------------------------
+
+--
+-- Déchargement des données de la table `tournament`
+--
+
+INSERT INTO `tournament` (`IDTOURNAMENT`, `NAME`, `STATUS`, `DATESTART`, `DATEEND`, `WINNER`, `IDGAME`, `IDUSER`) VALUES
+(1, 'worlcup', 'pending', NULL, NULL, NULL, 1, 1);
+
+
+# ---------------------------------------------------------
+# TABLE : TEAM
+# ---------------------------------------------------------
+
+--
+-- Déchargement des données de la table `team`
+--
+
+INSERT INTO `team` (`IDTEAM`, `NAME`, `POINTS`, `IMAGE`, `IDTOURNAMENT`) VALUES
+(1, 'falcons', 0, NULL, 1),
+(2, 'giants', 0, NULL, 1);
+
+# ---------------------------------------------------------
+# TABLE : ROUND
+# ---------------------------------------------------------
+
+--
+-- Déchargement des données de la table `round`
+--
+
+INSERT INTO `round` (`IDTOURNAMENT`, `IDROUND`, `NAME`) VALUES
+(1, 1, 'quarts-final'),
+(1, 2, 'demi-final');
+
+# ---------------------------------------------------------
+# TABLE : MATCHS
+# ---------------------------------------------------------
+
+--
+-- Déchargement des données de la table `matchs`
+--
+
+INSERT INTO `matchs` (`IDMATCHS`, `IDTOURNAMENT`, `IDROUND`, `SCORETEAM1`, `SCORETEAM2`) VALUES
+(1, 1, 2, 10, 0),
+(2, 1, 2, NULL, NULL),
+(3, 1, 1, NULL, NULL);
+
+# ---------------------------------------------------------
+# TABLE : PARTICIPATE
+# ---------------------------------------------------------
+
+--
+-- Déchargement des données de la table `participate`
+--
+
+INSERT INTO `participate` (`IDTEAM`, `IDTOURNAMENT`, `IDROUND`, `IDMATCHS`, `NUMTEAM`, `WINNER`) VALUES
+(1, 1, 2, 1, 1, ''),
+(2, 1, 2, 1, 2, '');
+
